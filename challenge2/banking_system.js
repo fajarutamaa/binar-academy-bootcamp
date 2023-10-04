@@ -1,17 +1,17 @@
-//initiali class BankAccount
+//itializeclass BankAccount
 class BankAccount {
-    //Define constructor with paramater balance = 0
+    //Define constructor with property saldo
     constructor(balance = 0) {
         this.saldo = balance
     }
 
-    //initializa method deposit
+    //nitialize method deposit
     async deposit(amount) {
         let amount = parseFloat(prompt('Masukkan jumlah saldo'))
         try {
             if (!isNaN(amount) && amount > 0) {
                 this.saldo += amount
-                this.balance()
+                this.showBalance()
                 await this.showMessage(`Setor Tunai Sebesar ${this.saldo} Berhasil`)
             } else {
                 throw new Error('process invalid')
@@ -23,13 +23,13 @@ class BankAccount {
         return this.saldo
     }
 
-    //intializas method withdraw
+    //initialize method withdraw
     async withdraw(amount) {
         let amount = parseFloat(prompt('Masukkan jumlah saldo'))
         try {
-            if (!isNan(amount) && jumlah > 0 && jumlah <= this.saldo) {
+            if (!isNan(amount) && amount > 0 && amount <= this.saldo) {
                 this.saldo -= amount
-                this.balance()
+                this.showBalance()
                 await this.showMessage(`Tarik Tunai Sebesar ${this.saldo} Berhasil`)
             } else {
                 throw new Error('process invalid')
@@ -50,8 +50,8 @@ class BankAccount {
     }
 
 
-    //intializas conditional balance
-    balance() {
+    //initialize conditional balance
+    showBalance() {
         return this.saldo
     }
 }
