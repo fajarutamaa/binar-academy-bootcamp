@@ -12,7 +12,7 @@ class BankAccount {
             if (amount != NaN && amount > 0) {
                 this.saldo += amount
                 this.showBalance()
-                await this.showMessage(`Setor Tunai Sebesar ${this.saldo} Berhasil`)
+                await this.showMessage(`Setor Tunai Sebesar ${amount} Berhasil, Saldo Anda Tersisa Rp. ${this.saldo}`)
             } else {
                 throw new Error('process invalid')
             }
@@ -30,7 +30,7 @@ class BankAccount {
             if (amount != NaN && amount > 0 && amount <= this.saldo) {
                 this.saldo -= amount
                 this.showBalance()
-                await this.showMessage(`Tarik Tunai Sebesar ${this.saldo} Berhasil`)
+                await this.showMessage(`Tarik Tunai Sebesar ${amount} Berhasil, Saldo Anda Tersisa Rp. ${this.saldo}`)
             } else {
                 throw new Error('process invalid')
             }
@@ -44,9 +44,10 @@ class BankAccount {
     async showMessage(msg) {
         return new Promise((resolve) => {
             setTimeout(() => {
+                document.getElementById('saldo').innerHTML = 'Saldo Anda Tersisa Sebesar Rp. ' + this.saldo.toString()
                 alert(msg)
                 resolve('success')
-            }, 5000)
+            }, 3000)
         })
     }
 
@@ -54,6 +55,7 @@ class BankAccount {
     showBalance() {
         return this.saldo
     }
+
 }
 
 const bankAccount = new BankAccount()
